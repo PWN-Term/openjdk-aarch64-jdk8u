@@ -13587,6 +13587,11 @@ test -n "$target_alias" &&
       VAR_OS_API=posix
       VAR_OS_ENV=solaris
       ;;
+    *android*)
+      VAR_OS=linux
+      VAR_OS_API=posix
+      VAR_OS_ENV=linux
+      ;;
     *darwin*)
       VAR_OS=macosx
       VAR_OS_API=posix
@@ -47278,6 +47283,8 @@ $as_echo "$as_me: The path of POTENTIAL_FREETYPE_LIB_PATH, which resolves as \"$
     if test ! -f "$path" && test ! -d "$path"; then
       as_fn_error $? "The path of POTENTIAL_FREETYPE_LIB_PATH, which resolves as \"$path\", is not found." "$LINENO" 5
     fi
+    
+    FREETYPE_CFLAGS="$FREETYPE_CFLAGS -fuse-ld=gold"
 
     POTENTIAL_FREETYPE_LIB_PATH="`cd "$path"; $THEPWDCMD -L`"
   fi

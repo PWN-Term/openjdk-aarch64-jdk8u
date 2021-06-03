@@ -99,7 +99,9 @@
 # include <gnu/libc-version.h>
 #endif
 # include <sys/ipc.h>
+#ifndef __ANDROID__
 # include <sys/shm.h>
+#endif
 # include <link.h>
 # include <stdint.h>
 # include <inttypes.h>

@@ -1,0 +1,13 @@
+--- jdk/src/share/instrument/JarFacade.c
++++ jdk/src/share/instrument/JarFacade.c
+@@ -34,6 +34,10 @@
+ #include <string.h>
+ #include <stdlib.h>
+ 
++#ifdef __ANDROID__
++extern int isspace(int);
++#endif
++
+ #include "jni.h"
+ #include "manifest_info.h"
+ #include "JarFacade.h"

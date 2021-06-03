@@ -1,0 +1,17 @@
+--- hotspot.orig/src/share/vm/gc_implementation/shared/parGCAllocBuffer.cpp	2021-05-11 03:49:29.765339951 +0000
++++ hotspot/src/share/vm/gc_implementation/shared/parGCAllocBuffer.cpp	2021-05-11 03:50:19.215311875 +0000
+@@ -98,10 +98,10 @@
+   if (_allocated == 0) {
+     assert(_unused == 0,
+            err_msg("Inconsistency in PLAB stats: "
+-                   "_allocated: "SIZE_FORMAT", "
+-                   "_wasted: "SIZE_FORMAT", "
+-                   "_unused: "SIZE_FORMAT", "
+-                   "_used  : "SIZE_FORMAT,
++                   "_allocated: " SIZE_FORMAT", "
++                   "_wasted: " SIZE_FORMAT", "
++                   "_unused: " SIZE_FORMAT", "
++                   "_used  : " SIZE_FORMAT,
+                    _allocated, _wasted, _unused, _used));
+ 
+     _allocated = 1;

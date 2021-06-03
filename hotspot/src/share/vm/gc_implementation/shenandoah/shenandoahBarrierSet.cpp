@@ -130,7 +130,7 @@ bool ShenandoahBarrierSet::read_prim_needs_barrier(HeapWord* hw, size_t s) {
 }
 
 void ShenandoahBarrierSet::read_ref_field(void* v) {
-  //    tty->print_cr("read_ref_field: v = "PTR_FORMAT, v);
+  //    tty->print_cr("read_ref_field: v = " PTR_FORMAT, v);
   // return *v;
 }
 

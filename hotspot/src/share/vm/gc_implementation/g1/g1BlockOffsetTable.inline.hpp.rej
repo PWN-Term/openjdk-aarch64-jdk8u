@@ -1,0 +1,15 @@
+--- hotspot.orig/src/share/vm/gc_implementation/g1/g1BlockOffsetTable.inline.hpp	2021-05-11 03:49:29.753340463 +0000
++++ hotspot/src/share/vm/gc_implementation/g1/g1BlockOffsetTable.inline.hpp	2021-05-11 03:51:42.180241673 +0000
+@@ -49,10 +49,10 @@
+ 
+ #define check_index(index, msg)                                                \
+   assert((index) < (_reserved.word_size() >> LogN_words),                      \
+-         err_msg("%s - index: "SIZE_FORMAT", _vs.committed_size: "SIZE_FORMAT, \
++         err_msg("%s - index: " SIZE_FORMAT", _vs.committed_size: " SIZE_FORMAT, \
+                  msg, (index), (_reserved.word_size() >> LogN_words)));        \
+   assert(G1CollectedHeap::heap()->is_in_exact(address_for_index_raw(index)),   \
+-         err_msg("Index "SIZE_FORMAT" corresponding to "PTR_FORMAT             \
++         err_msg("Index " SIZE_FORMAT " corresponding to " PTR_FORMAT             \
+                  " (%u) is not in committed area.",                            \
+                  (index),                                                      \
+                  p2i(address_for_index_raw(index)),                            \

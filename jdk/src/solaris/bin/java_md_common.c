@@ -75,7 +75,8 @@ ProgramExists(char *name)
     struct stat sb;
     if (stat(name, &sb) != 0) return 0;
     if (S_ISDIR(sb.st_mode)) return 0;
-    return (sb.st_mode & S_IEXEC) != 0;
+    // S_IEXEC is an obsolete synonym of S_IXUSR provided for BSD compatibility.
+    return (sb.st_mode & S_IXUSR) != 0;
 }
 
 /*

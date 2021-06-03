@@ -78,8 +78,8 @@ HeapWord* MarkBitMapRO::nextObject(HeapWord* addr) {
   assert(_bmStartWord <= (addr) && (addr) < (_bmStartWord + _bmWordSize),      \
          "outside underlying space?");                                         \
   /* assert(G1CollectedHeap::heap()->is_in_exact(addr),                  \
-         err_msg("Trying to access not available bitmap "PTR_FORMAT            \
-                 " corresponding to "PTR_FORMAT" (%u)",                        \
+         err_msg("Trying to access not available bitmap " PTR_FORMAT            \
+                 " corresponding to " PTR_FORMAT " (%u)",                        \
                  p2i(this), p2i(addr), G1CollectedHeap::heap()->addr_to_region(addr))); */
 
 inline void MarkBitMap::mark(HeapWord* addr) {

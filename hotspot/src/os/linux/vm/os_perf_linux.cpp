@@ -1651,7 +1651,7 @@ static unsigned countLinks(int p_socket, NetlinkList *p_netlinkList)
     return l_links;
 }
 
-static int getifaddrs(struct ifaddrs **ifap)
+static int _getifaddrs(struct ifaddrs **ifap)
 {
     if(!ifap)
     {
@@ -1693,7 +1693,7 @@ static int getifaddrs(struct ifaddrs **ifap)
     return 0;
 }
 
-static void freeifaddrs(struct ifaddrs *ifa)
+static void _freeifaddrs(struct ifaddrs *ifa)
 {
     struct ifaddrs *l_cur;
     while(ifa)
@@ -1710,7 +1710,7 @@ int NetworkPerformanceInterface::NetworkPerformance::network_utilization(Network
   ifaddrs* addresses;
   ifaddrs* cur_address;
 
-  if (getifaddrs(&addresses) != 0) {
+  if (_getifaddrs(&addresses) != 0) {
     return OS_ERR;
   }
 
@@ -1727,7 +1727,7 @@ int NetworkPerformanceInterface::NetworkPerformance::network_utilization(Network
     ret = cur;
   }
 
-  freeifaddrs(addresses);
+  _freeifaddrs(addresses);
   *network_interfaces = ret;
 
   return OS_OK;
